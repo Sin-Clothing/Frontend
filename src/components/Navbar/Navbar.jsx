@@ -42,7 +42,7 @@ const PrimarySearchAppBar = ({ totalItems }) => {
           <div className={classes.button}>
             <IconButton component={Link} to="/cart" aria-label="Show cart items" color="inherit">
               <Badge badgeContent={totalItems} color="secondary">
-                <ShoppingCart />
+                 
               </Badge>
             </IconButton>
           </div>
