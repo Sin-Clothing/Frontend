@@ -1,19 +1,23 @@
-import React, { useState } from "react";
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 
 import './Sidebar.css';
 
 export const Sidebar = (props) => {
-  const [sidebar, setSidebar] = useState(false);
+  // const [sidebar, setSidebar] = useState(false);
+  const [currentCategory, setCurrentCategory] = useState(-1);
 
-  const showSidebar = () => setSidebar(!sidebar);
+  const { categories } = props;
+
+  // const showSidebar = () => setSidebar(!sidebar);
 
   return (
     <div className="sidebar">
       <ul>
-        <li onClick={() => props.getAll()}>Alle Artikel</li>
-        <li onClick={() => props.filter("pulli")}>Pullis</li>
-        <li onClick={() => props.filter("jean")}>Jeans</li>
+        {categories.map((cat) => (
+          <li>
+            <button type="button" onClick={() => { setCurrentCategory(cat.categoryId); props.filter(cat.categoryId); } }>{currentCategory === cat.categoryId ? '> ' : ''}{cat.name}</button>
+          </li>
+        ))}
       </ul>
     </div>
   );
