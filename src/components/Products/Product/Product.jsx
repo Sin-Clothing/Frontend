@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import './Product.css';
 
@@ -18,10 +18,27 @@ const Product = ({ product, onClick }) => {
   );
 };
 
-export function Popup({ children, trigger, close }) {
+export function Popup({ children, trigger, close, ref }) {
+
+  const popUpRef = useRef();
+
+  useEffect(() => {
+    const handler = (event) => {
+      if (!popUpRef.current?.contains(event.target)) {
+        close();
+      }
+    };
+
+    document.addEventListener('mousedown', handler);
+
+    return () => {
+      document.removeEventListener('mousedown', handler);
+    };
+  });
+
   return (trigger) ? (
     <div className="item-popup">
-      <div className="item-popup-inner">
+      <div ref={popUpRef} className="item-popup-inner">
         <button type="button" className="close-btn" onClick={() => close()}> <FontAwesomeIcon icon={faTimes} /> </button>
         { children }
       </div>
