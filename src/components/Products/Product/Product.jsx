@@ -12,7 +12,7 @@ const Product = ({ product, onClick }) => {
       </div>
       <div className="description">
         <p>{product.name}</p>
-        <p className="price">{product.price}$</p>
+        <p className="price">{product.price} €</p>
       </div>
     </div>
   );

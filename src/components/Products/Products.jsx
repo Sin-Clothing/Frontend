@@ -5,7 +5,7 @@ import ProductInfo from './ProductInfo/ProductInfo';
 
 import './Products.css';
 
-const Products = ({ products, error }) => {
+const Products = ({ products, error, onAddItemToCart, onRemoveItemFromCart}) => {
 
   const [selectedProduct, setSelectedProduct] = useState(undefined);
 
@@ -15,10 +15,10 @@ const Products = ({ products, error }) => {
   return (
     <div className="items-container">
       {products.map((product) => (
-        <Product product={product} key={product.id} onClick={() => setSelectedProduct(product)} />
+        <Product onAddItemToCart={onAddItemToCart} product={product} key={product.id} onClick={() => setSelectedProduct(product)} />
       ))}
       <Popup trigger={selectedProduct !== undefined} close={() => setSelectedProduct(undefined)}>
-        <ProductInfo product={selectedProduct} />
+        <ProductInfo onRemoveItemFromCart={onRemoveItemFromCart} onAddItemToCart={onAddItemToCart} product={selectedProduct} />
       </Popup>
     </div>
   );

@@ -6,6 +6,7 @@ import { Link, useLocation } from 'react-router-dom';
 import logo from '../../assets/sin.png';
 import useStyles from './styles';
 
+
 const PrimarySearchAppBar = ({ totalItems }) => {
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
   const classes = useStyles();
@@ -22,7 +23,7 @@ const PrimarySearchAppBar = ({ totalItems }) => {
       <MenuItem>
         <IconButton component={Link} to="/cart" aria-label="Show cart items" color="inherit">
           <Badge badgeContent={totalItems} color="secondary">
-            <ShoppingCart />
+            <ShoppingCart/>
           </Badge>
         </IconButton>
         <p>Cart</p>
@@ -41,7 +42,9 @@ const PrimarySearchAppBar = ({ totalItems }) => {
           {location.pathname === '/' && (
           <div className={classes.button}>
             <IconButton component={Link} to="/cart" aria-label="Show cart items" color="inherit">
-              <Badge badgeContent={totalItems} color="secondary" />
+              <Badge badgeContent={totalItems} color="secondary">
+                <ShoppingCart/>
+              </Badge>
             </IconButton>
           </div>
           )}
