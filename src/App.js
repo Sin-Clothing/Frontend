@@ -28,13 +28,13 @@ const App = () => {
   };
 
   const onRemoveItemFromCart = (product) => {
-    const exist = cartItems.find((x) => x.productId === product.productId);
+    const exist = cartItems.find((x) => x.productId === product.productId && x.size.sizeId == product.size.sizeId);
     if (exist.qty === 1) {
       setCartItems(cartItems.filter((x) => x.productId !== product.productId));
     } else {
       setCartItems(
         cartItems.map((x) =>
-          x.productId === product.productId
+          (x.productId === product.productId && x.size.sizeId == product.size.sizeId)
             ? { ...exist, qty: exist.qty - 1 }
             : x
         )
