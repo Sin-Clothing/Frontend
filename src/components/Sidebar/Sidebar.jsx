@@ -14,7 +14,7 @@ export const Sidebar = (props) => {
     <div className="sidebar">
       <ul>
         {categories.map((cat) => (
-          <li>
+          <li key={`sidebar-item-${cat.categoryId}`}>
             <button type="button" onClick={() => { setCurrentCategory(cat.categoryId); props.filter(cat.categoryId); } }>{currentCategory === cat.categoryId ? '> ' : ''}{cat.name}</button>
           </li>
         ))}

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export default function Cart(props) {
-  const { cartItems, onAddItemToCart, onRemoveItemFromCart } = props;
+  const { cartItems, onAddItemToCart, onRemoveItemFromCart, currentSize } = props;
   const itemsPrice = cartItems.reduce((a, c) => a + c.qty * c.price, 0);
   const taxPrice = itemsPrice * 0.14;
   const shippingPrice = itemsPrice > 2000 ? 0 : 20;
@@ -13,7 +13,7 @@ export default function Cart(props) {
         {cartItems.length === 0 && <div>Cart is empty</div>}
         {cartItems.map((item) => (
           <div key={item.id} className="row">
-            <div className="col-2">{item.name}</div>
+            <div className="col-2">{item.name} {item.size.name}</div>
             
             <div className="col-2">
               <button onClick={() => onRemoveItemFromCart(item)} className="remove">

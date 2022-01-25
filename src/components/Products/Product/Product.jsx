@@ -8,7 +8,7 @@ const Product = ({ product, onClick }) => {
   return (
     <div className="item" onClick={() => onClick()}>
       <div>
-        <img src={product.pictureUrl} />
+        <img src={product.pictureUrl} alt="product" />
       </div>
       <div className="description">
         <p>{product.name}</p>

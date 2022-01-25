@@ -13,11 +13,11 @@ const App = () => {
   const [cartItems, setCartItems] = useState([]);
 
   const onAddItemToCart = (product) => {
-    const exist = cartItems.find((x) => x.productId === product.productId);
+    const exist = cartItems.find((x) => x.productId === product.productId && x.size.sizeId == product.size.sizeId);
     if (exist) {
       setCartItems(
         cartItems.map((x) =>
-          x.productId === product.productId
+          (x.productId === product.productId && x.size.sizeId == product.size.sizeId)
             ? { ...exist, qty: exist.qty + 1 }
             : x
         )
@@ -25,22 +25,22 @@ const App = () => {
     } else {
       setCartItems([...cartItems, { ...product, qty: 1 }]);
     }
-    console.log(product);
   };
 
-  const onRemoveItemFromCart = ( product ) => {
+  const onRemoveItemFromCart = (product) => {
     const exist = cartItems.find((x) => x.productId === product.productId);
-    if(exist.qty === 1) {
+    if (exist.qty === 1) {
       setCartItems(cartItems.filter((x) => x.productId !== product.productId));
     } else {
       setCartItems(
         cartItems.map((x) =>
           x.productId === product.productId
-            ? { ...exist, qty: exist.qty - 1 }: x
+            ? { ...exist, qty: exist.qty - 1 }
+            : x
         )
       );
     }
-  }
+  };
 
   const defaultCategory = {
     categoryId: -1,
@@ -48,6 +48,8 @@ const App = () => {
     description: "Alles ist besser als nix.",
   };
   const [categories, setCategories] = useState([defaultCategory]);
+
+  const [sizes, setSizes] = useState([]);
 
   const fetchProducts = () => {
     fetch("http://localhost:5555/products")
@@ -76,9 +78,19 @@ const App = () => {
       .catch((e) => setErrorMessage(e));
   };
 
+  const fetchSizes = () => {
+    fetch("http://localhost:5555/sizes")
+      .then((res) => res.json())
+      .then((data) => {
+        setSizes(data);
+      })
+      .catch((e) => setErrorMessage(e));
+  };
+
   useEffect(() => {
     fetchProducts();
     fetchCategories();
+    fetchSizes();
   }, []);
 
   const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
@@ -91,13 +103,14 @@ const App = () => {
           handleDrawerToggle={handleDrawerToggle}
         />
         <div className="wrapper">
-          <Sidebar filter={filterProducts} categories={categories} />
           <Switch>
             <Route exact path="/">
+              <Sidebar filter={filterProducts} categories={categories} />
               <Products
                 onAddItemToCart={onAddItemToCart}
                 onRemoveItemFromCart={onRemoveItemFromCart}
                 products={products}
+                sizes={sizes}
                 error={errorMessage}
               />
             </Route>
