@@ -1,22 +1,130 @@
-.row {
+
+
+.Cart-Container{
+  width: 70%;
+  height: 85%;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0px 25px 40px #1687d933;
+ }
+
+ body{
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom right, #E3F0FF, #FAFCFF);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+
+.Header{
+  margin: auto;
+  width: 90%;
+  height: 15%;
   display: flex;
   justify-content: space-between;
-}
-.row.center {
   align-items: center;
-}
-.col-1 {
-  flex: 1;
-}
-.col-2 {
-  flex: 2;
-}
-.block {
-  background-color: #e0e0e0;
-  padding: 1rem;
-  margin: 0.5rem;
-  border-radius: 0.5rem;
-}
-.text-right {
+ }
+
+ .Heading{
+  font-size: 30px;
+  font-family: ‘Open Sans’;
+  font-weight: 700;
+  color: #2F3841;
+  padding-right: 700px;
+ }
+
+ .counter{
+  width: 15%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+ }
+ .btn{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #d9d9d9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-family: ‘Open Sans’;
+  font-weight: 900;
+  color: #202020;
+  cursor: pointer;
+ }
+ .count{
+  font-size: 20px;
+  font-family: ‘Open Sans’;
+  font-weight: 900;
+  color: #202020;
+ }
+
+ .Cart-Items{
+  margin: auto;
+  width: 90%;
+  height: 30%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+ }
+ .image-box{
+  width: 15%;
+  text-align: center;
+  padding-right: 90px;
+ }
+ .about{
+  height: 100%;
+ }
+ .title{
+  padding-top: 5px;
+  line-height: 10px;
+  font-size: 32px;
+  font-family: ‘Open Sans’;
+  font-weight: 800;
+  color: #202020;
+ }
+ .subtitle{
+  line-height: 10px;
+  font-size: 18px;
+  font-family: ‘Open Sans’;
+  font-weight: 600;
+  color: #909090;
+ }
+
+ .prices{
+  height: 100%;
   text-align: right;
-}
+  padding-top: 20px;
+  font-size: 26px;
+  font-family: ‘Open Sans’;
+  font-weight: 800;
+  color: #202020;
+ }
+
+ .total-amount{
+  font-size: 26px;
+  font-family: ‘Open Sans’;
+  font-weight: 700;
+  color: #202020;
+ }
+
+ .button{
+  margin-top: 5px;
+  width: 100%;
+  height: 40px;
+  border: none;
+  background: linear-gradient(to bottom right, #B8D7FF, #8EB7EB);
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: ‘Open Sans’;
+  font-weight: 600;
+  color: #202020;
+ }
+ .ueber{
+  font-weight: bold;
+ }
