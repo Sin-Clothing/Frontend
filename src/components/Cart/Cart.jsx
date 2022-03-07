@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { Link, useLocation } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
+
 import "./Cart.css";
 
 export default function Cart(props) {
@@ -7,6 +10,7 @@ export default function Cart(props) {
   const taxPrice = itemsPrice * 0.14;
   const shippingPrice = itemsPrice > 2000 ? 0 : 20;
   const totalPrice = itemsPrice + taxPrice + shippingPrice;
+  const history = useHistory();
   return (
     <body>
       <div className="Cart-container">
@@ -66,7 +70,7 @@ export default function Cart(props) {
                 </div>
                 <hr />
                 <div className="row">
-                  <button className="button" onClick={() => alert('Implement Checkout!')}>
+                  <button className="button" onClick={handleClick}>
                     Checkout
                   </button>
                 </div>
@@ -76,6 +80,11 @@ export default function Cart(props) {
         </div>
         </body>  
   );
+  
+  function handleClick() {
+    console.log(totalPrice)
+    history.push({state:{cartItems, totalPrice}, pathname:"/checkout"});
+  }
 
   function Zoom({ src }) {
     const backgroundImage = `url(${src})`;

@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import { Navbar, Products, Sidebar } from "./components";
-import Cart from "./components/Cart/Cart";
+import { Checkout, Navbar, Products, Sidebar, Cart } from "./components";
 
 import "./index.css";
 
@@ -114,13 +113,17 @@ const App = () => {
                 error={errorMessage}
               />
             </Route>
-
             <Route exact path="/cart">
               <Cart
                 cartItems={cartItems}
                 onAddItemToCart={onAddItemToCart}
                 onRemoveItemFromCart={onRemoveItemFromCart}
               ></Cart>
+            </Route>
+            <Route exact path="/checkout">
+              <Checkout>
+                
+              </Checkout>
             </Route>
           </Switch>
         </div>
