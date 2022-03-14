@@ -12,7 +12,7 @@ export default function Checkout(props) {
             <div className="contact-info">
                 <input type="text" placeholder="Email" id="email"></input>
                 <br></br>
-                <input type="text" placeholder="Firstname" id="firstname" value="fname"></input>
+                <input type="text" placeholder="Firstname" id="firstname"></input>
                 <input type="text" placeholder="Lastname" id="lastname" value="lname"></input>
             </div>
             <h1>Shipping details</h1>
