@@ -41,6 +41,10 @@ const App = () => {
     }
   };
 
+  const onClearCart = () => {
+    setCartItems([]);
+  }
+
   const defaultCategory = {
     categoryId: -1,
     name: "Alle Artikel",
@@ -121,9 +125,9 @@ const App = () => {
               ></Cart>
             </Route>
             <Route exact path="/checkout">
-              <Checkout>
-                
-              </Checkout>
+              <Checkout 
+                onClearCart={onClearCart}
+              ></Checkout>
             </Route>
           </Switch>
         </div>
