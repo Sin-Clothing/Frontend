@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-
 import { Checkout, Navbar, Products, Sidebar, Cart } from "./components";
 
 import "./index.css";
@@ -10,6 +9,7 @@ const App = () => {
   const [products, setProducts] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
   const [cartItems, setCartItems] = useState([]);
+  
 
   const onAddItemToCart = (product) => {
     const exist = cartItems.find((x) => x.productId === product.productId && x.size.sizeId == product.size.sizeId);

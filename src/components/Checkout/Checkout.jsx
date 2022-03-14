@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Link, useLocation } from 'react-router-dom';
-
+import { useHistory } from "react-router-dom";
 
 export default function Checkout() {
     const location = useLocation();
-    
+    const history = useHistory();
     return (
         <div>
             <h1>Contact Info</h1>
@@ -51,7 +51,9 @@ export default function Checkout() {
         };
         console.log(order.amount);
         fetchOrder(order);
-        //history.push({state:{cartItems, itemsPrice, taxPrice, shippingPrice}, pathname:"/checkout"});
+        const items = location.state.cartItems;
+        const checkoutState = true;
+        history.push({state:{items, checkoutState}, pathname:"/"});
     }
 
     function fetchOrder(order) {
