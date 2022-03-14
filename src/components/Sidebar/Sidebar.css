@@ -1,10 +1,11 @@
 .sidebar {
-  width: 20%;
-  max-width: 200px;
-  height: calc(100vh - 64px);
+  width: 200px;
+  position: absolute;
+  height: 100%;
   background-color: rgb(255, 255, 255);
   float: left;
   box-shadow: -10px 0px 10px 5px #000;
+  overflow: hidden;
 }
 
 .sidebar ul {

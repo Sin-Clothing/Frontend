@@ -11,7 +11,7 @@ export default function Cart(props) {
   const totalPrice = itemsPrice + taxPrice + shippingPrice;
   const history = useHistory();
   return (
-    <body>
+    <div id="cart-body">
       <div className="Cart-container">
         <div className="Header">
           {cartItems != 0 && <h3 className="Heading">Cart&nbsp;Items</h3>}
@@ -77,7 +77,7 @@ export default function Cart(props) {
             )}
           </div>
         </div>
-        </body>  
+      </div>  
   );
   
   function handleClick() {
