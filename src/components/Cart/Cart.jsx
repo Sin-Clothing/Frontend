@@ -6,10 +6,10 @@ import "./Cart.css";
 export default function Cart(props) {
   const { product ,cartItems, onAddItemToCart, onRemoveItemFromCart, currentSize } = props;
   const itemsPrice = cartItems.reduce((a, c) => a + c.qty * c.price, 0);
-  const taxPrice = itemsPrice * 0.14;
-  const shippingPrice = itemsPrice > 2000 ? 0 : 20;
-  const totalPrice = itemsPrice + taxPrice + shippingPrice;
   const history = useHistory();
+  const taxPrice = itemsPrice/5;
+  const netto = itemsPrice * 0.8;
+  const totalPrice = netto + taxPrice;
   return (
     <div id="cart-body">
       <div className="Cart-container">
@@ -18,7 +18,6 @@ export default function Cart(props) {
           </div>
           <div>
             {cartItems.length === 0 && <div className="empty">Cart is empty</div>}
-            
             {cartItems.map((item) => (
               <div key={item.id} className="Cart-Items">
                 <div className="image-box"><img src={item.pictureUrl} height={140} alt="product" /></div>
@@ -45,18 +44,12 @@ export default function Cart(props) {
               <>
                 <hr></hr>
                 <div>
-                  <div className="ueber">Items Price</div>
-                  <div className="col-1 text-right">${itemsPrice.toFixed(2)}</div>
+                  <div className="ueber">Netto</div>
+                  <div className="col-1 text-right">${netto.toFixed(2)}</div>
                 </div>
                 <div>
                   <div className="ueber">Tax Price</div>
                   <div className="col-1 text-right">${taxPrice.toFixed(2)}</div>
-                </div>
-                <div>
-                  <div className="ueber">Shipping Price</div>
-                  <div className="col-1 text-right">
-                    ${shippingPrice.toFixed(2)}
-                  </div>
                 </div>
 
                 <div className="row">
@@ -81,12 +74,6 @@ export default function Cart(props) {
   );
   
   function handleClick() {
-    console.log(totalPrice)
     history.push({state:{cartItems, totalPrice}, pathname:"/checkout"});
-  }
-
-  function Zoom({ src }) {
-    const backgroundImage = `url(${src})`;
-    const [backgroundPosition, setBackgroundPosition] = useState('0% 0%');
   }
 }
