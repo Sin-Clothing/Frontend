@@ -17,7 +17,7 @@ export default function ProductInfo(props) {
 
       <div className="details">
         <p>{product.name}</p>
-        <p>{product.price} €</p>
+        <p className='cypress-price'>{product.price} €</p>
         <p>Größe: {sizes.find((s) => s.sizeId == currentSize)?.name || sizes[0].name}</p>
         
         <select name="size" id="size" onChange={(event) => { setCurrentSize(event.target.value); }}>
