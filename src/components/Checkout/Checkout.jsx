@@ -70,7 +70,7 @@ export default function Checkout(props) {
     }
 
     function fetchOrder(order) {
-        fetch("http://localhost:5555/checkout", {
+        fetch("http://ec2-3-88-230-75.compute-1.amazonaws.com:5555/checkout", {
             method: "POST",
             body: JSON.stringify(order),
             headers: {'Content-Type': 'application/json'}
