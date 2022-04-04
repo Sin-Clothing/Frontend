@@ -26,7 +26,7 @@ export default function ProductInfo(props) {
           ))}
         </select>
       </div>
-
+      <br />
       <div className="addToCart">
         <button className="add-to-cart-button" onClick={() => onAddItemToCart({...product, size: (sizes.find((s) => s.sizeId == currentSize) || sizes[0])})}>  
           <svg className="add-to-cart-box box-1" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="2" fill="#ffffff"/></svg>  

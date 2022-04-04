@@ -1,44 +1,55 @@
 import React, { useState } from "react";
 import { Link, useLocation } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
+import './Checkout.css';
 
 export default function Checkout(props) {
     const { onClearCart } = props;
     const location = useLocation();
     const history = useHistory();
     return (
-        <div>
-            <h1>Contact Info</h1>
+        
+        <div class="container">
+            <h3>Contact Info</h3>
             <div className="contact-info">
+                <label for="email"><i class="fa fa-envelope"></i> Email</label>
                 <input type="text" placeholder="Email" id="email"></input>
                 <br></br>
+                <label for="fname"><i class="fa fa-user"></i> Firstname</label>
                 <input type="text" placeholder="Firstname" id="firstname"></input>
-                <input type="text" placeholder="Lastname" id="lastname" value="lname"></input>
+                <label for="fname"><i class="fa fa-user"></i> Lastname</label>
+                <input type="text" placeholder="Lastname" id="lastname"></input>
             </div>
-            <h1>Shipping details</h1>
+            <h3>Shipping details</h3>
             <div className="shipping-details">
-                <input type="text" placeholder="Country" id="country" value="country"></input>
+                <label for="city"><i class="fa fa-institution"></i> Country</label>
+                <input type="text" placeholder="Country" id="country"></input>
                 <br></br>
-                <input type="text" placeholder="Streetname" id="streetname" value="sname"></input>
-                <input type="text" placeholder="Streetnumber" id="streetnumber" value="snumber"></input>
-                <input type="text" placeholder="Doornumber" id="doornumber" value="dnumber"></input>
+                <label for="adr"><i class="fa fa-address-card-o"></i> Street</label>
+                <input type="text" placeholder="Streetname" id="streetname"></input>
+                <label for="adr"><i class="fa fa-address-card-o"></i> Streetnumber</label>
+                <input type="text" placeholder="Streetnumber" id="streetnumber"></input>
+                <label for="adr"><i class="fa fa-address-card-o"></i> Doornumber</label>
+                <input type="text" placeholder="Doornumber" id="doornumber"></input>
                 <br></br>
-                <input type="text" placeholder="City" id="city" value="city"></input>
-                <input type="text" placeholder="Postal Code" id="postalcode" value="postal"></input>
+                <label for="city"><i class="fa fa-institution"></i> City</label>
+                <input type="text" placeholder="City" id="city"></input>
+                <label for="city"><i class="fa fa-institution"></i> Postal Code</label>
+                <input type="text" placeholder="Postal Code" id="postalcode"></input>
             </div>
             <div className="button-div">
-                  <button className="button" onClick={handleClick}>
+                <button className="btn" onClick={handleClick}>
                     Submit
-                  </button>
-                </div>
+                </button>
+            </div>
         </div>
     )
 
     function handleClick() {
         const date = new Date();
-        const month = date.getMonth()+1;
+        console.log(date);
         const order = {
-            date: date.getFullYear()+"-"+month+"-"+date.getDate()+", "+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds(),
+            date: date.getFullYear()+"-"+date.getMonth()+"-"+date.getDay()+", "+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds(),
             firstname: document.getElementById("firstname").value,
             lastname: document.getElementById("lastname").value,
             email: document.getElementById("email").value,
