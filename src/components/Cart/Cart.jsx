@@ -56,7 +56,7 @@ export default function Cart(props) {
                   <div className="total-amount">
                     <strong>Total Price</strong>
                   </div>
-                  <div className="col-1 text-right">
+                  <div className="totalPrice text-right">
                     <strong>${totalPrice.toFixed(2)}</strong>
                   </div>
                 </div>

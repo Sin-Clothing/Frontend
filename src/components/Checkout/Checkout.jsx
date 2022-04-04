@@ -36,8 +36,9 @@ export default function Checkout(props) {
 
     function handleClick() {
         const date = new Date();
+        const month = date.getMonth()+1;
         const order = {
-            date: date.getFullYear()+"-"+date.getMonth()+"-"+date.getDay()+", "+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds(),
+            date: date.getFullYear()+"-"+month+"-"+date.getDate()+", "+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds(),
             firstname: document.getElementById("firstname").value,
             lastname: document.getElementById("lastname").value,
             email: document.getElementById("email").value,

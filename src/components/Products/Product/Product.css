@@ -28,6 +28,8 @@
   width: 100%;
   justify-content: space-between;
   color: black;
+  padding-top: 10px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .item .description p {

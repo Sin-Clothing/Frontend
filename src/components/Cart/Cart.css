@@ -89,9 +89,10 @@
  }
  .subtitle{
   line-height: 10px;
-  font-size: 18px;
+  font-size: 25px;
   font-family: ‘Open Sans’;
-  font-weight: 600;
+  font-weight: bold;
+  padding-top: 15px;
   color: #909090;
  }
 
@@ -127,4 +128,9 @@
  }
  .ueber{
   font-weight: bold;
+ }
+
+ .totalPrice {
+    padding-top: 10px;
+    padding-left: 10px;
  }
