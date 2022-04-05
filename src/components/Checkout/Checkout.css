@@ -1,11 +1,21 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
-div {
-  font-family: Arial;
-  font-size: 17px;
-  padding: 8px;
+* {
+  box-sizing: border-box;
 }
 
-input[type="text"] {
+.container {
+  margin-top: 5%;
+  padding: 5px 20px 15px 20px;
+  border-radius: 3px;
+}
+
+.checkout-container {
+  font-family: Arial;
+  font-size: 17px;
+  padding: 28px;
+}
+
+.checkout-input[type="text"] {
   width: 100%;
   margin-bottom: 20px;
   padding: 12px;
@@ -18,7 +28,7 @@ label {
   display: block;
 }
 
-#btn {
+.checkout-button {
   background-color: #04aa6d;
   color: white;
   padding: 12px;
@@ -28,4 +38,5 @@ label {
   border-radius: 3px;
   cursor: pointer;
   font-size: 17px;
+  margin-bottom: 5%;
 }

@@ -8,39 +8,38 @@ export default function Checkout(props) {
     const location = useLocation();
     const history = useHistory();
     return (
-        
         <div class="container">
-            <h3>Contact Info</h3>
+        <div>
             <div className="contact-info">
+            <h3>Contact Info</h3>
                 <label for="email"><i class="fa fa-envelope"></i> Email</label>
-                <input type="text" placeholder="Email" id="email"></input>
+                <input type="text" className="checkout-input"placeholder="Email" id="email"></input>
                 <br></br>
                 <label for="fname"><i class="fa fa-user"></i> Firstname</label>
-                <input type="text" placeholder="Firstname" id="firstname"></input>
+                <input type="text" className="checkout-input"placeholder="Firstname" id="firstname"></input>
                 <label for="fname"><i class="fa fa-user"></i> Lastname</label>
-                <input type="text" placeholder="Lastname" id="lastname"></input>
-            </div>
-            <h3>Shipping details</h3>
-            <div className="shipping-details">
+                <input type="text" className="checkout-input"placeholder="Lastname" id="lastname"></input>
+            
+                <h3>Shipping details</h3>
+                
                 <label for="city"><i class="fa fa-institution"></i> Country</label>
-                <input type="text" placeholder="Country" id="country"></input>
+                <input type="text" className="checkout-input" placeholder="Country" id="country"></input>
                 <br></br>
                 <label for="adr"><i class="fa fa-address-card-o"></i> Street</label>
-                <input type="text" placeholder="Streetname" id="streetname"></input>
+                <input type="text" className="checkout-input"placeholder="Streetname" id="streetname"></input>
                 <label for="adr"><i class="fa fa-address-card-o"></i> Streetnumber</label>
-                <input type="text" placeholder="Streetnumber" id="streetnumber"></input>
+                <input type="text" className="checkout-input"placeholder="Streetnumber" id="streetnumber"></input>
                 <label for="adr"><i class="fa fa-address-card-o"></i> Doornumber</label>
-                <input type="text" placeholder="Doornumber" id="doornumber"></input>
+                <input type="text" className="checkout-input"placeholder="Doornumber" id="doornumber"></input>
                 <br></br>
                 <label for="city"><i class="fa fa-institution"></i> City</label>
-                <input type="text" placeholder="City" id="city"></input>
+                <input type="text" className="checkout-input"placeholder="City" id="city"></input>
                 <label for="city"><i class="fa fa-institution"></i> Postal Code</label>
-                <input type="text" placeholder="Postal Code" id="postalcode"></input>
-            </div>
-            <div className="button-div">
-                <button className="btn" onClick={handleClick}>
-                    Submit
+                <input type="text" className="checkout-input" placeholder="Postal Code" id="postalcode"></input>
+                <button className="checkout-button"onClick={handleClick}>
+                    Place Order
                 </button>
+                </div>
             </div>
         </div>
     )
