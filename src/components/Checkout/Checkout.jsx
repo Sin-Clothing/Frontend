@@ -13,12 +13,12 @@ export default function Checkout(props) {
             <div className="contact-info">
             <h3>Contact Info</h3>
                 <label for="email"><i class="fa fa-envelope"></i> Email</label>
-                <input type="text" className="checkout-input"placeholder="Email" id="email"></input>
+                <input type="text" className="checkout-input" placeholder="Email" id="email"></input>
                 <br></br>
                 <label for="fname"><i class="fa fa-user"></i> Firstname</label>
-                <input type="text" className="checkout-input"placeholder="Firstname" id="firstname"></input>
+                <input type="text" className="checkout-input" placeholder="Firstname" id="firstname"></input>
                 <label for="fname"><i class="fa fa-user"></i> Lastname</label>
-                <input type="text" className="checkout-input"placeholder="Lastname" id="lastname"></input>
+                <input type="text" className="checkout-input" placeholder="Lastname" id="lastname"></input>
             
                 <h3>Shipping details</h3>
                 
@@ -26,14 +26,14 @@ export default function Checkout(props) {
                 <input type="text" className="checkout-input" placeholder="Country" id="country"></input>
                 <br></br>
                 <label for="adr"><i class="fa fa-address-card-o"></i> Street</label>
-                <input type="text" className="checkout-input"placeholder="Streetname" id="streetname"></input>
+                <input type="text" className="checkout-input" placeholder="Streetname" id="streetname"></input>
                 <label for="adr"><i class="fa fa-address-card-o"></i> Streetnumber</label>
-                <input type="text" className="checkout-input"placeholder="Streetnumber" id="streetnumber"></input>
+                <input type="text" className="checkout-input" placeholder="Streetnumber" id="streetnumber"></input>
                 <label for="adr"><i class="fa fa-address-card-o"></i> Doornumber</label>
-                <input type="text" className="checkout-input"placeholder="Doornumber" id="doornumber"></input>
+                <input type="text" className="checkout-input" placeholder="Doornumber" id="doornumber"></input>
                 <br></br>
                 <label for="city"><i class="fa fa-institution"></i> City</label>
-                <input type="text" className="checkout-input"placeholder="City" id="city"></input>
+                <input type="text" className="checkout-input" placeholder="City" id="city"></input>
                 <label for="city"><i class="fa fa-institution"></i> Postal Code</label>
                 <input type="text" className="checkout-input" placeholder="Postal Code" id="postalcode"></input>
                 <button className="checkout-button"onClick={handleClick}>
@@ -46,9 +46,10 @@ export default function Checkout(props) {
 
     function handleClick() {
         const date = new Date();
+        const month = date.getMonth() +1;
         console.log(date);
         const order = {
-            date: date.getFullYear()+"-"+date.getMonth()+"-"+date.getDay()+", "+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds(),
+            date: date.getFullYear()+"-"+month+"-"+date.getDate()+", "+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds(),
             firstname: document.getElementById("firstname").value,
             lastname: document.getElementById("lastname").value,
             email: document.getElementById("email").value,
@@ -70,6 +71,7 @@ export default function Checkout(props) {
 
     function fetchOrder(order) {
         fetch("http://ec2-54-161-140-158.compute-1.amazonaws.com:5555/checkout", {
+        //fetch("http://localhost:5555/checkout", {
             method: "POST",
             body: JSON.stringify(order),
             headers: {'Content-Type': 'application/json'}

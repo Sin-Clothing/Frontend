@@ -56,6 +56,7 @@ const App = () => {
 
   const fetchProducts = () => {
     fetch("http://ec2-54-161-140-158.compute-1.amazonaws.com:5555/products")
+    //fetch("http://localhost:5555/products")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -65,6 +66,7 @@ const App = () => {
 
   const filterProducts = (categoryId) => {
     fetch(`http://ec2-54-161-140-158.compute-1.amazonaws.com:5555/filteredProducts?categoryId=${categoryId}`)
+    //fetch(`http://localhost:5555/filteredProducts?categoryId=${categoryId}`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -74,6 +76,7 @@ const App = () => {
 
   const fetchCategories = () => {
     fetch("http://ec2-54-161-140-158.compute-1.amazonaws.com:5555/category")
+    //fetch("http://localhost:5555/category")
       .then((res) => res.json())
       .then((data) => {
         setCategories([defaultCategory, ...data]);
@@ -83,6 +86,7 @@ const App = () => {
 
   const fetchSizes = () => {
     fetch("http://ec2-54-161-140-158.compute-1.amazonaws.com:5555/sizes")
+    //fetch("http://localhost:5555/sizes")
       .then((res) => res.json())
       .then((data) => {
         setSizes(data);
