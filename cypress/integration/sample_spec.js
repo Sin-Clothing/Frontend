@@ -9,11 +9,13 @@ describe('First Test', function () {
         // - make an assertion about page content
 
         cy.visit('/')
-        cy.contains('schwarzes Sweatshirt').click()
-        cy.get('.cypress-price').should('have.text', '69.9 €')
-        cy.get('.add-to-cart').click()
-        cy.get('.cypress-test').click()
-        cy.url().should('include', 'http://localhost:3000/cart')
-        cy.get('.prices').should('have.text', '$69.90')
+        cy.contains('Weiße Schuhe')
+        //.click()
+        //cy.get('.cypress-price').should('have.text', '69.90 €')
+        //cy.contains('ADD TO CART').click()
+        //cy.get('.title').click()
+        //cy.url().should('include', 'http://localhost:3000/cart')
+        //cy.get('.prices').should('have.text', '$69.90')
+        
     })
 })
